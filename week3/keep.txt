@@ -1,0 +1,63 @@
+
+public class StudentList extends CDLinkedList {
+    // you can write additional methods.
+
+
+
+	// implement this method
+	public void removeStudent(String id) throws Exception {
+		DListIterator p = new DListIterator(header);
+		while (p.hasNext()) {
+		Student stu= (Student)p.next();
+		if (stu.getId()==id) {
+			removeAt(p);
+			return;
+			}
+		else if (p.currentNode==header||p.currentNode.nextNode==header||stu==null) return;	
+		}
+	}
+	
+	// implement this method
+	public void appendQuick(CDLinkedList list2) throws Exception {
+		if (list2==null) return;
+		this.header.previousNode.nextNode=list2.header.nextNode;
+		list2.header.nextNode.previousNode=this.header.previousNode;
+		this.header.previousNode=list2.header.previousNode;
+		list2.header.previousNode.nextNode=this.header;
+	}
+
+	// implement this method
+	public void append(CDLinkedList list2) throws Exception {
+		DListIterator dlist=new DListIterator (header.previousNode);
+		for (int i=0;i<list2.size();i++) {
+			Student st=((Student)list2.findKth(i)).createCopy();
+			insert(st,dlist);
+			dlist.next();
+		}
+	}
+	
+
+	// implement this method
+	public CDLinkedList gender(int i) throws Exception {
+		String sex="";	
+		StudentList s1 = new StudentList();
+		
+		if (i==0) sex="male";
+		else if (i==1) sex="female";
+		else return null;
+				
+		DListIterator dlist1 = new DListIterator(header);
+		DListIterator dlist2=new DListIterator(s1.header);
+		
+		while (dlist1.hasNext()){
+			Student stu = (Student)dlist1.next();
+			if (stu.getSex().equals(sex)) {
+				s1.insert(stu, dlist2);
+				dlist2.next();
+			}
+			if (dlist1.currentNode.nextNode==header) break;
+		}
+		return s1;
+	}
+
+}

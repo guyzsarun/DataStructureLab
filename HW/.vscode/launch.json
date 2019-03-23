@@ -1,0 +1,11 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - TestStack",
+            "request": "launch",
+            "mainClass": "TestStack",
+            "projectName": "HW"
+        }
+    ]
+}
