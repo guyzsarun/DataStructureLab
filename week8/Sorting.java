@@ -31,13 +31,13 @@ public class Sorting {
           int[] t = (int[])d.clone();
           long start = System.currentTimeMillis();
 //-------------------------------------------------
-          bubbleSort(t);
+    //      bubbleSort(t);
     //      selectionSort(t);
-    //      insertionSort(t);
+     //     insertionSort(t);
     //      shellSort(t);
     //      heapSort(t);
     //      mergeSort(t);
-    //      quickSort(t);
+          quickSort(t);
 //-------------------------------------------------
           time = System.currentTimeMillis()- start;
           sum += time;
