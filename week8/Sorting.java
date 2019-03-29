@@ -12,8 +12,8 @@ public class Sorting {
     for (int initialOrder = 0; initialOrder <= 2; initialOrder++) { // 0 = sorted, 1 = random, 2 = reversed
       System.out.printf("\nInitial state = %d\n", initialOrder);
       System.out.printf("size \t time(ms) \n");
-      //for (int n = 10000; n <= 160000; n *= 2) {          // bubble, selection, insertion sort
-      for (int n = 1000000; n <= 64000000; n *= 2) {      // shell, heap, merge, quick sort
+      for (int n = 10000; n <= 160000; n *= 2) {          // bubble, selection, insertion sort
+      //for (int n = 1000000; n <= 64000000; n *= 2) {      // shell, heap, merge, quick sort
    	    int[] d = new int[n];
         switch (initialOrder) {
           case 0: for (int i = 0; i < n; i++) d[i] = i; break;
@@ -31,13 +31,13 @@ public class Sorting {
           int[] t = (int[])d.clone();
           long start = System.currentTimeMillis();
 //-------------------------------------------------
-    //      bubbleSort(t);
-    //      selectionSort(t);
-     //     insertionSort(t);
+          bubbleSort(t);
+     //     selectionSort(t);
+  //        insertionSort(t);
     //      shellSort(t);
-    //      heapSort(t);
-    //      mergeSort(t);
-          quickSort(t);
+    //      heapSort(t);	
+  //        mergeSort(t);
+   //     quickSort(t);
 //-------------------------------------------------
           time = System.currentTimeMillis()- start;
           sum += time;
