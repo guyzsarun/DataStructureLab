@@ -41,11 +41,11 @@ public class HuffmanNode implements Comparable {
 			
 			HuffmanNode a= new HuffmanNode((x.frequency+y.frequency),'0',x,y);
 			h.add(a);
-			printCodes(a);
+			
 		}
 		
 		//default return
-		return new HuffmanNode(0, ' ', null, null);
+		return (HuffmanNode)h.pop();
 	}
 
 	
